@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width">
+        <meta name="google-site-verification" content="zORQDgxLDYayKFvp9Xc0846qRpWP9aSPTon1BW-n0PQ" />
+        <!--- meta description --->
+        {% block meta_description %}{% endblock %}
+        
+        
+        <title>CodingX | {% block title %}{% endblock %}</title>
+        <meta name="keywords" content="Concepteur Site Web,CodingX,Développement web, Wordpress, PHP, CSS, HTML">
+        <!-- CSS -->      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400|Roboto:300,400,500">
+        <link rel="stylesheet" href="public/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="public/assets/fontawesome-5.11.2/css/all.min.css">
+
+        <link rel="stylesheet" href="public/assets/css/animate.css">
+        <link rel="stylesheet" href="public/assets/css/style.css">
+        {% block css_style %}{% endblock %}
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="public/assets/ico/favicon-cx.png">
+    </head>
+
+    <body>
+    
+    	<!-- Top content -->
+        <div class="top-content">
+        
+        	<!-- Top menu -->
+    			<nav class="navbar navbar-inverse" role="navigation">
+    				<div class="container-fluid spacer-80">
+    					<div class="navbar-header">
+    						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+    							<span class="sr-only">CodingX</span>
+    							<span class="icon-bar"></span>
+    							<span class="icon-bar"></span>
+    							<span class="icon-bar"></span>
+    						</button>
+    						<a class="navbar-brand" href="/">Creation site internet | CodingX</a>
+    					</div>
+    					<!-- Collect the nav links, forms, and other content for toggling -->
+    					<div class="collapse navbar-collapse" id="top-navbar-1">
+    						<ul class="nav navbar-nav navbar-right">
+                  <li><a class="active" href="/">Accueil</a></li>
+                  <li><a  href="/formation">Formation</a></li>
+                  <li><a  href="/creation-de-site-web">Creation de site web</a></li>
+                  <li><a  href="/developpement-specifique">Développement spécifique</a></li>
+                  <li><a  href="/developpement-mobile">Développement Mobile</a></li>
+                  <li><a href="contact">Contact</a></li>    
+                  <li><a><i class="fa fa-phone"></i>+33 6 23 46 99 20</a></li> 	
+    						</ul>
+    					</div>
+    				</div>
+    			</nav>
+
+
+        <!--- Dynamic Content Section --->
+        {% block content %}{% endblock %}
+
+
+        <!-- contact section -->
+        <div class=" contact-container">
+            <div class="container">
+                <div class="row first-part-contact-section">
+                    <div class="title-contact">Contact</div>
+                    <p>Nous aimerions en savoir plus sur votre projet. Contactez-nous ci-dessous pour un devis gratuit. Les projets commencent à 500 €.</p>
+                </div>
+                <div class="row second-part-contact-section">
+                    <form action="/contact" method="POST">
+                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        <div class="col-md-6 col-xs-12">
+                          <div class="form-group">
+                              <div class="inner-from-group">
+                                 <i class="fa fa-building"></i> 
+                                <input type="text" class="form-control-contact" id="contact_company" name="contact[company]" value="" >
+                                <label class="contact-label" for="company">Nom de l'entreprise</label>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                             <div class="inner-from-group">
+                                 <i class="fa fa-user"></i>
+                                <input type="text" class="form-control-contact" id="contact_subject" name="contact[subject]"  value="" >
+                                <label class="contact-label" for="subject">Nom</label>
+                            </div>
+                          </div>  
+                          <div class="form-group">
+                              <div class="inner-from-group">
+                                  <i class="fa fa-envelope"></i>
+                                <input type="email" class="form-control-contact" id="contact_email" name="contact[email]"  value=""  >
+                                <label class="contact-label" for="email">L'adresse de messagrie</label>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <div class="inner-from-group">
+                                  <i class="fa fa-phone"></i>
+                                <input type="tel" class="form-control-contact" id="contact_phone" name="contact[phone]"  value="" >
+                                <label class="contact-label" for="phone">Téléphone</label>
+                              </div>
+                          </div>    
+                          <div class="form-group">
+                              <div class="inner-from-group">
+                                  <i class="fa fa-clipboard" aria-hidden="true"></i>
+                            <input type="text" class="form-control-contact" id="contact_content" name="contact[content]"  value="" >
+                            <label class="contact-label" for="content">Détails de projet</label>
+                              </div>
+                          </div>  
+                          <div class="form-group">
+                              <label class="typeofproject">Type de projet</label>
+                              <div class="inner-from-group">
+                                  <span>App existante</span>
+                                  <span>Nouvelle app</span>
+                              </div>
+                          </div>    
+                          
+                          
+                          
+                        <button type="submit" id="contact_Envoyer" name="contact[envoyer]" class="btn btn-primary">Envoyer</button>  
+                        </div>
+                        </form>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="form-group">
+                                <img alt="position Codingx Brest France" class="france-map" src="public/assets/img/franceLow.svg"/>
+                               
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+<footer id="footer" class="footer-1">
+  <div class="main-footer widgets-dark typo-light">
+    <div class="container footer-container">
+    <div class="row">
+        
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="widget subscribe no-box">
+        <h5 class="widget-title">CodingX<span></span></h5>
+        <p>CodingX est une entreprise de services du numérique en France, spécialisé en création de site internet, site vitrine, portail, e-commerce…</p>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="widget no-box">
+        <h5 class="widget-title">Liens Rapides<span></span></h5>
+          <ul class="thumbnail-widget">
+          <li>
+          <div class="thumb-content"><a href="/">Accueil</a></div>	
+          </li>
+                  <li><a  href="/creation-de-site-web">Creation de site web</a></li>
+                  <li><a  href="/developpement-specifique">Développement spécifique</a></li>
+                  <li><a  href="/developpement-mobile">Développement Mobile</a></li>
+          <li>
+          <div class="thumb-content"><a href="/contact">Contact</a></div>	
+          </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+
+      <div class="widget no-box">
+      <h5 class="widget-title">Contact<span></span></h5>
+
+      <p><a href="mailto:info@domain.com" title="glorythemes"><i class="fa fa-envelope-open"></i> contact@codingx.tech</a></p>
+      <p><i class="fa fa-phone"></i>+33 6 23 46 99 20</p>
+      <ul class="social-footer2">
+      <li class=""><a title="youtube" target="_blank" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a></li>
+      <li class=""><a href="https://www.facebook.com/codingx.tech/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a></li>
+      <li class=""><a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+      <li class=""><a title="instagram" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+      </ul>
+      </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+    
+  <div class="footer-copyright">
+  <div class="container">
+  <div class="row">
+  <div class="col-md-12 text-center">
+  <p>Copyright CodingX © {{ "now"|date("Y") }}. Tous les droits sont réservés.</p>
+  </div>
+  </div>
+  </div>
+  </div>
+</footer>
+
+
+        <!-- Javascript -->
+        <script src="public/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="public/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="public/assets/js/jquery.backstretch.min.js"></script>
+        <script src="public/assets/js/wow.min.js"></script>
+        <script src="public/assets/js/scripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="public/assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    </body>
+
+</html>
+

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste!{% endblock %}
+
+{% block body %}
+<form action="" method="get">
+<input type="search" name="s">
+<input type="submit" name="submit" value="Recherche...">
+</form>
+<br>
+*******************************************
+<form action="/delete/item" method="POST">
+{% for item in items%}
+ <p> 
+ <b>{{item.titre}}</b> : {{item.type}} <br>
+ {% if item.image  %}
+ <img src="/uploads/{{item.id}}.{{item.image|split('.')|last}}">
+ {% endif %}
+ </p> 
+ <button type="submit" name="id" value="{{item.id}}" >Supprimer</button> <br>
+{% endfor %}
+</form>
+{% endblock %}
